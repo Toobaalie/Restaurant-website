@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TastyBite Restaurant</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header id="mainHeader">
+  <div class="logo">🍴 TastyBite</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#menu">Menu</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="cart-btn" onclick="toggleCart()">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cartCount" class="cart-count">0</span>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="home" class="hero">
+  <div class="hero-content">
+    <span class="hero-tag">Fresh &amp; Delicious</span>
+    <h1>Taste the <span class="gold">Difference</span></h1>
+    <p>Authentic Desi flavors &amp; Crave-worthy Fast Food<br>Delivered Fresh to Your Door</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-primary">Explore Menu</a>
+      <a href="#contact" class="btn-outline">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES BAR ===== -->
+<div class="features-bar">
+  <div class="feature"><i class="fas fa-motorcycle"></i><span>Fast Delivery</span></div>
+  <div class="feature"><i class="fas fa-leaf"></i><span>Fresh Ingredients</span></div>
+  <div class="feature"><i class="fas fa-star"></i><span>Top Rated</span></div>
+  <div class="feature"><i class="fas fa-headset"></i><span>24/7 Support</span></div>
+</div>
+
+<!-- ===== MENU ===== -->
+<section id="menu">
+  <div class="section-title">
+    <h2>Our Menu</h2>
+    <p>Explore our handcrafted dishes made with the freshest ingredients</p>
+  </div>
+
+  <div class="menu-tabs">
+    <button class="tab-btn active" onclick="showTab('desi', this)">
+      <i class="fas fa-bowl-rice"></i> Desi Food
+    </button>
+    <button class="tab-btn" onclick="showTab('fastfood', this)">
+      <i class="fas fa-burger"></i> Fast Food
+    </button>
+  </div>
+
+  <!-- DESI FOOD -->
+  <div class="tab-content active" id="tab-desi">
+    <div class="menu-grid">
+
+      <div class="menu-card" onclick="addToCart('Chicken Biryani', 350)">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&q=80" alt="Chicken Biryani">
+          <div class="card-overlay"><i class="fas fa-cart-plus"></i> Add to Cart</div>
+        </div>
+        <div class="card-body">
+          <h3>Chicken Biryani</h3>
+          <p>Aromatic basmati rice with tender spiced chicken</p>
+          <div class="card-footer">
+            <span class="price">PKR 350</span>
+            <button class="add-btn" onclick="event.stopPropagation(); addToCart('Chicken Biryani', 350)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" onclick="addToCart('Beef Nihari', 400)">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=400&q=80" alt="Beef Nihari">
+          <div class="card-overlay"><i class="fas fa-cart-plus"></i> Add to Cart</div>
+        </div>
+        <div class="card-body">
+          <h3>Beef Nihari</h3>
+          <p>Slow-cooked tender beef in rich spicy gravy</p>
+          <div class="card-footer">
+            <span class="price">PKR 400</span>
+            <button class="add-btn" onclick="event.stopPropagation(); addToCart('Beef Nihari', 400)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" onclick="addToCart('Mutton Karahi', 850)">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=400&q=80" alt="Mutton Karahi">
+          <div class="card-overlay"><i class="fas fa-cart-plus"></i> Add to Cart</div>
+        </div>
+        <div class="card-body">
+          <h3>Mutton Karahi</h3>
+          <p>Juicy mutton cooked in spiced tomato gravy</p>
+          <div class="card-footer">
+            <span class="price">PKR 850</span>
+            <button class="add-btn" onclick="event.stopPropagation(); addToCart('Mutton Karahi', 850)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" onclick="addToCart('Chicken Tikka', 550)">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400&q=80" alt="Chicken Tikka">
+          <div class="card-overlay"><i class="fas fa-cart-plus"></i> Add to Cart</div>
+        </div>
+        <div class="card-body">
+          <h3>Chicken Tikka</h3>
+          <p>Smoky marinated chicken grilled to perfection</p>
+          <div class="card-footer">
+            <span class="price">PKR 550</span>
+            <button class="add-btn" onclick="event.stopPropagation(); addToCart('Chicken Tikka', 550)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" onclick="addToCart('Daal Chawal', 220)">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80" alt="Daal Chawal">
+          <div class="card-overlay"><i class="fas fa-cart-plus"></i> Add to Cart</div>
+        </div>
+        <div class="card-body">
+          <h3>Daal Chawal</h3>
+          <p>Classic lentil curry served with steamed rice</p>
+          <div class="card-footer">
+            <span class="price">PKR 220</span>
+            <button class="add-btn" onclick="event.stopPropagation(); addToCart('Daal Chawal', 220)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" onclick="addToCart('Seekh Kabab', 450)">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=80" alt="Seekh Kabab">
+          <div class="card-overlay"><i class="fas fa-cart-plus"></i> Add to Cart</div>
+        </div>
+        <div class="card-body">
+          <h3>Seekh Kabab</h3>
+          <p>Spiced minced beef skewers, char-grilled</p>
+          <div class="card-footer">
+            <span class="price">PKR 450</span>
+            <button class="add-btn" onclick="event.stopPropagation(); addToCart('Seekh Kabab', 450)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" onclick="addToCart('Haleem', 300)">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&q=80" alt="Haleem">
+          <div class="card-overlay"><i class="fas fa-cart-plus"></i> Add to Cart</div>
+        </div>
+        <div class="card-body">
+          <h3>Haleem</h3>
+          <p>Slow-cooked wheat and meat stew, deeply spiced</p>
+          <div class="card-footer">
+            <span class="price">PKR 300</span>
+            <button class="add-btn" onclick="event.stopPropagation(); addToCart('Haleem', 300)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" onclick="addToCart('Paye', 350)">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=400&q=80" alt="Paye">
+          <div class="card-overlay"><i class="fas fa-cart-plus"></i> Add to Cart</div>
+        </div>
+        <div class="card-body">
+          <h3>Paye</h3>
+          <p>Traditional slow-cooked trotters in rich broth</p>
+          <div class="card-footer">
+            <span class="price">PKR 350</span>
+            <button class="add-btn" onclick="event.stopPropagation(); addToCart('Paye', 350)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FAST FOOD -->
+  <div class="tab-content" id="tab-fastfood">
+    <div class="menu-grid">
+
+      <div class="menu-card" onclick="addToCart('Zinger Burger', 800)">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80" alt="Zinger Burger">
+          <div class="card-overlay"><i class="fas fa-cart-plus"></i> Add to Cart</div>
+        </div>
+        <div class="card-body">
+          <h3>Zinger Burger</h3>
+          <p>Crispy fried chicken with special sauce &amp; veggies</p>
+          <div class="card-footer">
+            <span class="price">PKR 800</span>
+            <button class="add-btn" onclick="event.stopPropagation(); addToCart('Zinger Burger', 800)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" onclick="addToCart('Pepperoni Pizza', 1000)">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80" alt="Pepperoni Pizza">
+          <div class="card-overlay"><i class="fas fa-cart-plus"></i> Add to Cart</div>
+        </div>
+        <div class="card-body">
+          <h3>Pepperoni Pizza</h3>
+          <p>Classic Italian pizza with double cheese</p>
+          <div class="card-footer">
+            <span class="price">PKR 1000</span>
+            <button class="add-btn" onclick="event.stopPropagation(); addToCart('Pepperoni Pizza', 1000)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" onclick="addToCart('Creamy Pasta', 900)">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=400&q=80" alt="Creamy Pasta">
+          <div class="card-overlay"><i class="fas fa-cart-plus"></i> Add to Cart</div>
+        </div>
+        <div class="card-body">
+          <h3>Creamy Pasta</h3>
+          <p>White sauce pasta with herbs and mushrooms</p>
+          <div class="card-footer">
+            <span class="price">PKR 900</span>
+            <button class="add-btn" onclick="event.stopPropagation(); addToCart('Creamy Pasta', 900)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" onclick="addToCart('Shawarma Roll', 450)">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=400&q=80" alt="Shawarma Roll">
+          <div class="card-overlay"><i class="fas fa-cart-plus"></i> Add to Cart</div>
+        </div>
+        <div class="card-body">
+          <h3>Shawarma Roll</h3>
+          <p>Grilled chicken wrapped in fresh bread with garlic sauce</p>
+          <div class="card-footer">
+            <span class="price">PKR 450</span>
+            <button class="add-btn" onclick="event.stopPropagation(); addToCart('Shawarma Roll', 450)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" onclick="addToCart('Loaded Fries', 350)">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400&q=80" alt="Loaded Fries">
+          <div class="card-overlay"><i class="fas fa-cart-plus"></i> Add to Cart</div>
+        </div>
+        <div class="card-body">
+          <h3>Loaded Fries</h3>
+          <p>Crispy fries loaded with cheese and jalapeños</p>
+          <div class="card-footer">
+            <span class="price">PKR 350</span>
+            <button class="add-btn" onclick="event.stopPropagation(); addToCart('Loaded Fries', 350)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" onclick="addToCart('Chicken Nuggets', 500)">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&q=80" alt="Chicken Nuggets">
+          <div class="card-overlay"><i class="fas fa-cart-plus"></i> Add to Cart</div>
+        </div>
+        <div class="card-body">
+          <h3>Chicken Nuggets</h3>
+          <p>Golden crispy nuggets with dipping sauce</p>
+          <div class="card-footer">
+            <span class="price">PKR 500</span>
+            <button class="add-btn" onclick="event.stopPropagation(); addToCart('Chicken Nuggets', 500)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" onclick="addToCart('Club Sandwich', 550)">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=400&q=80" alt="Club Sandwich">
+          <div class="card-overlay"><i class="fas fa-cart-plus"></i> Add to Cart</div>
+        </div>
+        <div class="card-body">
+          <h3>Club Sandwich</h3>
+          <p>Triple-decker sandwich with chicken and veggies</p>
+          <div class="card-footer">
+            <span class="price">PKR 550</span>
+            <button class="add-btn" onclick="event.stopPropagation(); addToCart('Club Sandwich', 550)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" onclick="addToCart('Beef Hot Dog', 400)">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1612392166886-ee8475b03af2?w=400&q=80" alt="Beef Hot Dog">
+          <div class="card-overlay"><i class="fas fa-cart-plus"></i> Add to Cart</div>
+        </div>
+        <div class="card-body">
+          <h3>Beef Hot Dog</h3>
+          <p>Juicy beef sausage in a toasted sesame bun</p>
+          <div class="card-footer">
+            <span class="price">PKR 400</span>
+            <button class="add-btn" onclick="event.stopPropagation(); addToCart('Beef Hot Dog', 400)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CART SIDEBAR ===== -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<aside class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+    <button class="close-btn" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="empty-cart">
+      <i class="fas fa-cart-shopping"></i>
+      <p>Your cart is empty</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total">Total: <strong id="cartTotal">PKR 0</strong></div>
+    <button class="btn-place-order" onclick="openOrderModal()">Place Order <i class="fas fa-arrow-right"></i></button>
+  </div>
+</aside>
+
+<!-- ===== ORDER MODAL ===== -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="order-modal">
+    <div class="modal-header">
+      <h3><i class="fas fa-receipt"></i> Complete Your Order</h3>
+      <button onclick="closeOrderModal()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="order-summary-box" id="orderSummary"></div>
+      <form id="orderForm" onsubmit="submitOrder(event)">
+        <div class="form-group">
+          <label><i class="fas fa-user"></i> Full Name</label>
+          <input type="text" id="custName" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-phone"></i> Phone Number</label>
+          <input type="tel" id="custPhone" placeholder="+92 300 0000000" required>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-location-dot"></i> Delivery Address</label>
+          <textarea id="custAddress" placeholder="House no., Street, Area, City" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn-confirm">
+          <i class="fas fa-check-circle"></i> Confirm Order
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="section-title">
+    <h2>About Us</h2>
+    <p>Our story &amp; commitment to quality</p>
+  </div>
+  <div class="about-content">
+    <div class="about-text">
+      <h3>Welcome to TastyBite</h3>
+      <p>Since 2020, TastyBite has been serving the finest Desi and Fast Food with a commitment to quality, taste, and freshness. Every dish is crafted with hand-picked ingredients and prepared with passion by our experienced chefs.</p>
+      <p>Whether you crave a hearty Nihari on a cold morning or a crispy burger for a quick bite — we've got you covered, delivered hot right to your door.</p>
+      <div class="about-stats">
+        <div class="stat"><h4>5000+</h4><p>Happy Customers</p></div>
+        <div class="stat"><h4>30 min</h4><p>Avg. Delivery</p></div>
+        <div class="stat"><h4>16+</h4><p>Menu Items</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="section-title">
+    <h2>Contact Us</h2>
+    <p>We'd love to hear from you</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <i class="fas fa-envelope"></i>
+      <h4>Email</h4>
+      <p>tastybite@email.com</p>
+    </div>
+    <div class="contact-card">
+      <i class="fas fa-phone"></i>
+      <h4>Phone</h4>
+      <p>+92 300 1234567</p>
+    </div>
+    <div class="contact-card">
+      <i class="fas fa-clock"></i>
+      <h4>Hours</h4>
+      <p>Daily: 11am – 11pm</p>
+    </div>
+    <div class="contact-card">
+      <i class="fas fa-location-dot"></i>
+      <h4>Location</h4>
+      <p>Main Boulevard, Lahore</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast"></div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo">🍴 TastyBite</div>
+    <p>Crafted with ❤️ for food lovers</p>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 TastyBite Restaurant. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
